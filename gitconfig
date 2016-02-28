@@ -1,0 +1,40 @@
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[user]
+	name = craigchi
+	email = craig10624@gmail.com
+[merge]
+	tool = vimdiff
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	log = auto
+[alias]
+	st = status
+	ci = commit
+	cn = commit --no-edit
+	co = checkout
+	br = branch
+	df = diff
+	ds = diff --name-status
+	ll = log --graph --decorate --pretty=oneline --abbrev-commit
+	li = log --oneline --name-status --no-merges
+	ss = show --name-status
+	mt = mergetool
+	pick = cherry-pick
+	fp = format-patch
+#	la = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	la = log --graph --decorate --abbrev-commit --all --pretty=format:'%C(yellow)%h%C(reset) %s %C(bold blue)<%an>%C(reset) %C(bold red)[%cd]%C(reset)%C(bold green)%d%C(reset)' --date=short
+	lo = log --graph --decorate --abbrev-commit --all --pretty=format:'%C(yellow)%h%C(reset) %s %C(bold blue)<%an>%C(reset) %C(bold red)[%cd]%C(reset)%C(bold green)%d%C(reset)' --date=short --date-order
+	ls = log --stat --decorate --abbrev-commit
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	history-view-vpane-position = 535
+	file-view-vpane-position = 692
+	main-window-view = HistoryView
+[push]
+	default = simple
