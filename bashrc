@@ -99,7 +99,7 @@ fi
 #    . /etc/bash_completion
 #fi
 
-PS1="${debian_chroot:+($debian_chroot)}\[\e[0;36m\][\[\e[0;31m\]\u\[\e[0;36m\]@\[\e[1;36m\]\h\[\e[0;36m\] \A] \[\e[1;32m\]\w\[\e[0m\] $?\n$ "
+PS1='${debian_chroot:+($debian_chroot)}\[\e[0;36m\][\[\e[0;31m\]\u\[\e[0;36m\]@\[\e[1;36m\]\h\[\e[0;36m\] \A] \[\e[1;32m\]\w\[\e[0m\] $?\n$ '
 TERM="xterm-256color"
 
 alias vi='vim'

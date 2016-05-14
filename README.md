@@ -16,9 +16,9 @@ Craig is used to Ubuntu 14.04 LTS with `bash`. Therefore the setup script is wri
 
 ## Installation
 
-Please ensure that you are login as `root` to do this configuration.
+Please ensure that you are login as `root` or are in sudoers to do this configuration.
 
 ```sh
-$> apt-get install curl
+$> sudo apt-get install curl
 $> curl -sS -k https://batarang.myds.me:52316/craigchi/linux-configs/raw/master/setup.sh | sh
 ```
