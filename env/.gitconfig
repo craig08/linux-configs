@@ -18,6 +18,7 @@
 	cn = commit --no-edit
 	co = checkout
 	br = branch
+	rb = rebase
 	df = diff
 	ds = diff --name-status
 	ll = log --graph --decorate --pretty=oneline --abbrev-commit
@@ -27,6 +28,7 @@
 	pick = cherry-pick
 	fp = format-patch
 #	la = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lf = log --stat --decorate --format=fuller --abbrev-commit
 	la = log --graph --decorate --abbrev-commit --all --pretty=format:'%C(yellow)%h%C(reset) %s %C(bold blue)<%an>%C(reset) %C(bold red)[%cd]%C(reset)%C(bold green)%d%C(reset)' --date=short
 	lo = log --graph --decorate --abbrev-commit --all --pretty=format:'%C(yellow)%h%C(reset) %s %C(bold blue)<%an>%C(reset) %C(bold red)[%cd]%C(reset)%C(bold green)%d%C(reset)' --date=short --date-order
 	ls = log --stat --decorate --abbrev-commit
