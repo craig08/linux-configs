@@ -23,7 +23,7 @@ Unlink() {
 }
 
 if [ "$1" = "install" ]; then
-    apt-get install -y ssh vim curl ctags make tmux sed
+    sudo apt install -y ssh vim curl ctags make tmux sed
     sed -i 's/PermitRootLogin.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
     /etc/init.d/ssh start
     curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
