@@ -111,3 +111,15 @@ export LANG='en_US.UTF-8'
 if [ -d "$HOME/linux-configs/bin" ]; then
     PATH="$PATH:$HOME/linux-configs/bin"
 fi
+
+fix ()
+{
+    if [ -z "$1" ]; then
+        return 0;
+    fi;
+    ag "$@" > /tmp/fix;
+    if [ 0 -eq `wc -l /tmp/fix | cut -d' ' -f1` ]; then
+        return 0;
+    fi;
+    vim -q /tmp/fix -c ':copen'
+}

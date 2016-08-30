@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Craig is used to Ubuntu LTS with `bash`. Therefore the setup script is written in `bash`, and common tools will be installed via built-in `apt-get`. Please ensure that your network works.
+Craig is used to Ubuntu LTS with `bash`. Therefore the setup script is written in `bash`, and common tools will be installed via built-in `apt`. Please ensure that your network works.
 
 Current version supports Ubuntu 16.04 xenial.
 
