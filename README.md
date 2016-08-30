@@ -21,6 +21,7 @@ Current version supports Ubuntu 16.04 xenial.
 Please ensure that you are login as `root` or are in sudoers to do this configuration.
 
 ```sh
-$> sudo apt update && sudo apt install -y curl
-$> curl -sS -k https://batarang.myds.me:52316/craigchi/linux-configs/raw/master/setup.sh | sh
+$> git clone https://github.com/craig08/linux-configs.git
+$> cd linux-configs
+$> ./apply.sh install
 ```
