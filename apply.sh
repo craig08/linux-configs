@@ -23,7 +23,8 @@ Unlink() {
 }
 
 if [ "$1" = "install" ]; then
-    sudo apt update
+    apt update || sudo apt update
+    apt install -y sudo
     sudo apt install -y ssh vim curl ctags make tmux sed silversearcher-ag
     sed -i 's/PermitRootLogin.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
     /etc/init.d/ssh start
