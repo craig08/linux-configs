@@ -14,6 +14,7 @@ Current version supports Ubuntu 16.04 xenial.
   - `.vimrc`: Some customized functions and plugins managed by `Neobundle`.
   - `.gitconfig`: Git aliases.
 - `bin/`: Will place some simple CLI tools here. The path `$HOME/linux-configs/bin` is also added to `.bashrc`.
+- `scripts/`: Some useful scripts.
 
 
 ## Installation

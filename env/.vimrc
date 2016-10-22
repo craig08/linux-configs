@@ -1,50 +1,33 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
 
-  " Required:
-  set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
 " Required:
-call neobundle#begin(expand('$HOME/.vim/bundle'))
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
-
-" Highlight & Theme
-NeoBundle 'pangloss/vim-javascript'
-"NeoBundle 'python-syntax'
-
-"NeoBundle 'kien/rainbow_parentheses.vim'
-"	au VimEnter * RainbowParenthesesToggle
-
-set term=xterm
-set t_Co=256
 NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'Lokaltog/vim-powerline'
-	"let g:Powerline_symbols = 'fancy'
-	set laststatus=2
-	"set noshowmode
-	"set guifont=Consolas\ for\ Powerline\ FixedD:h9
-
-NeoBundle 'fcamel/gj'
-NeoBundle 'taglist.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'mattn/webapi-vim'
 NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'taglist.vim'
+NeoBundle 'Lokaltog/vim-powerline'
+	set laststatus=2
 
-" Required:
+NeoBundle 'pangloss/vim-javascript'
+
 call neobundle#end()
 
 " Required:
@@ -53,29 +36,21 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-"End NeoBundle Scripts-------------------------
 
-"colorscheme yzlin256
 colorscheme molokai
 "colorscheme hybrid
-"let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('/root/.snippets_custom.json')), "\n"))
 
 "" ==================== Map keys ====================
 " My leader setting
 let mapleader=","
 nnoremap <leader>e :tabe 
 nnoremap <leader>c :tabclose<CR>
-" nnoremap <leader>s :Gstatus<CR>
 nnoremap <leader>b :Gblame<CR>
-nnoremap <leader>a :Gblame<CR>
-nnoremap <leader>l :Glog<CR>
 nnoremap <leader>v :Gvdiff<CR><C-w><C-x>
 nnoremap <leader>t :TlistToggle<CR>
 nnoremap <leader>n :n<CR>
 nnoremap <leader>N :N<CR>
-"nnoremap <leader>ev :vsp $MYVIMRC<CR>
-"nnoremap <leader>sv :source $MYVIMRC<CR>:echo $MYVIMRC "has been reloaded>^.^<"<CR>
-"nnoremap <leader>f :Ag <cword><CR>
+nnoremap <leader>r :source $MYVIMRC<CR>:echo $MYVIMRC "has been reloaded>^.^<"<CR>
 
 " I can type :help on my own, thanks.
 nnoremap <F1> <Esc>
@@ -102,7 +77,6 @@ set ignorecase      " ignore case when searching
 set smartcase       " ignore case if search pattern is all lowercase,case-sensitive otherwise, only work when ignorecase is set
 
 set nobackup		" no *~ backup files
-"set ttymouse=xterm2	" support tmux mouse
 set wildmenu
 set showmode		" show mode. show filename size when open file
 set bs=2			" allow backspacing over everything in insert mode
@@ -135,7 +109,6 @@ autocmd Syntax * normal zR
 set encoding=utf-8
 set fileencoding=utf-8          " big5/utf8/taiwan(before 6.0)
 set termencoding=utf-8		" utf8/big5
-"let $LANG="zh_TW.UTF-8"	" locales => zh_TW.UTF-8
 if ($LANG == "zh_TW.big5")
 	set fileencoding=big5
 	set termencoding=big5
@@ -155,10 +128,6 @@ set t_ut=
 nmap _Y :!echo ""> ~/.vi_tmp<CR><CR>:w! ~/.vi_tmp<CR>
 vmap _Y :w! ~/.vi_tmp<CR>
 nmap _P :r ~/.vi_tmp<CR>
-
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " cscope
 
