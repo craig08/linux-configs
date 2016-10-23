@@ -23,6 +23,7 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'taglist.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Lokaltog/vim-powerline'
 	set laststatus=2
 
