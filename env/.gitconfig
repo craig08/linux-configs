@@ -2,7 +2,7 @@
 	editor = vim
 	excludesfile = ~/.gitignore
 [user]
-	name = craigchi
+	name = Craig Chi
 	email = craig10624@gmail.com
 [merge]
 	tool = vimdiff
