@@ -30,6 +30,7 @@ if [ "$1" = "install" ]; then
     /etc/init.d/ssh start
     curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
     Link
+    ~/.vim/bundle/neobundle.vim/bin/neoinstall
     locale-gen zh_TW.UTF-8 en_US.UTF-8
     cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Change timezone to Taipei"
     echo "Set your root password with passwd!"

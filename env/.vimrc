@@ -28,6 +28,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 	set laststatus=2
 
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'airblade/vim-gitgutter'
 
 call neobundle#end()
 
@@ -49,6 +50,7 @@ nnoremap <leader>c :tabclose<CR>
 nnoremap <leader>b :Gblame<CR>
 nnoremap <leader>v :Gvdiff<CR><C-w><C-x>
 nnoremap <leader>t :TlistToggle<CR>
+nnoremap <leader>g :GitGutterSignsToggle<CR>
 nnoremap <leader>n :n<CR>
 nnoremap <leader>N :N<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>:echo $MYVIMRC "has been reloaded>^.^<"<CR>
@@ -78,6 +80,7 @@ set ignorecase      " ignore case when searching
 set smartcase       " ignore case if search pattern is all lowercase,case-sensitive otherwise, only work when ignorecase is set
 
 set nobackup		" no *~ backup files
+set ttymouse=xterm2	" support tmux mouse
 set wildmenu
 set showmode		" show mode. show filename size when open file
 set bs=2			" allow backspacing over everything in insert mode
