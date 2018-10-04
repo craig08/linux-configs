@@ -106,6 +106,8 @@ alias vi='vim'
 alias tt='tmux new -s'
 alias ttk='tmux kill-session -t'
 alias tta='tmux attach-session -t'
+alias ptt='ssh bbsu@ptt.cc'
+alias ptt2='ssh bbsu@ptt2.cc'
 
 export LANG='en_US.UTF-8'
 if [ -d "$HOME/linux-configs/bin" ]; then
