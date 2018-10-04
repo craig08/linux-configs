@@ -29,6 +29,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'vim-syntastic/syntastic'
 
 call neobundle#end()
 
@@ -39,8 +40,10 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-colorscheme molokai
+"colorscheme molokai
 "colorscheme hybrid
+colorscheme peaksea
+set background=dark
 
 "" ==================== Map keys ====================
 " My leader setting
@@ -60,6 +63,8 @@ nnoremap <F1> <Esc>
 nnoremap <F2> :call HideNumber()<CR>
 nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
+nnoremap <F9> :SyntasticCheck<CR>
+nnoremap <F10> :SyntasticReset<CR>
 set pastetoggle=<F5>
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
@@ -183,10 +188,10 @@ function! HideNumber()
 endfunc
 
 " set highlight color in vimdiff
-hi DiffAdd                     ctermbg=17
-hi DiffChange      ctermfg=181 ctermbg=239
-hi DiffDelete      ctermfg=162 ctermbg=53
-hi DiffText                    ctermbg=235 cterm=bold
+"hi DiffAdd                     ctermbg=17
+"hi DiffChange      ctermfg=181 ctermbg=239
+"hi DiffDelete      ctermfg=162 ctermbg=53
+"hi DiffText                    ctermbg=235 cterm=bold
 
 " remember last cursor location when open file
 if has("autocmd")
@@ -203,3 +208,12 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_ignore_files = ['/usr/lib/']
+let g:syntastic_mode_map = {
+    \ "mode": "passive"}
