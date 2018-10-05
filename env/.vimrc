@@ -114,6 +114,7 @@ set t_Co=256
 
 set foldmethod=syntax
 "autocmd Syntax * normal zR
+set foldlevelstart=1
 
 set encoding=utf-8
 set fileencoding=utf-8          " big5/utf8/taiwan(before 6.0)
