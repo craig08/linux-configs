@@ -30,6 +30,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'vim-syntastic/syntastic'
+NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 
@@ -210,6 +211,7 @@ map <Leader>h <Plug>(easymotion-linebackward)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
+" syntastic settings
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -218,3 +220,23 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_ignore_files = ['/usr/lib/']
 let g:syntastic_mode_map = {
     \ "mode": "passive"}
+
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType go setlocal shiftwidth=4 tabstop=4 list
+
+" vim-go settings
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_fmt_autosave = 1
+let g:go_metalinter_autosave = 1
+let g:go_list_type = "quickfix"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck'] "errcheck(?)

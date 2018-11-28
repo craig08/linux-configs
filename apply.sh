@@ -26,6 +26,7 @@ if [ "$1" = "install" ]; then
     apt update || sudo apt update
     apt install -y sudo
     sudo apt install -y ssh vim curl ctags cscope make tmux sed silversearcher-ag locales bash-completion
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
     sed -i 's/PermitRootLogin.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
     /etc/init.d/ssh start
     curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
@@ -33,6 +34,7 @@ if [ "$1" = "install" ]; then
     ~/.vim/bundle/neobundle.vim/bin/neoinstall
     locale-gen zh_TW.UTF-8 en_US.UTF-8
     cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Change timezone to Taipei"
+    dpkg-reconfigure --frontend noninteractive tzdata
     echo "Set your root password with passwd!"
 elif [ "$1" = "link" ]; then
     Link
