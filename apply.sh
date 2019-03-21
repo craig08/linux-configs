@@ -25,7 +25,7 @@ Unlink() {
 if [ "$1" = "install" ]; then
     apt update || sudo apt update
     apt install -y sudo
-    sudo apt install -y ssh vim curl ctags cscope make tmux sed silversearcher-ag locales bash-completion
+    sudo apt install -y ssh vim curl ctags cscope make tmux sed silversearcher-ag locales bash-completion python python3
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
     sed -i 's/PermitRootLogin.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
     /etc/init.d/ssh start
