@@ -25,7 +25,8 @@ Unlink() {
 if [ "$1" = "install" ]; then
     apt update || sudo apt update
     apt install -y sudo
-    sudo apt install -y ssh vim curl ctags cscope make tmux sed silversearcher-ag locales bash-completion python python3
+    sudo apt install -y ssh vim curl ctags cscope make tmux sed silversearcher-ag locales \
+        bash-completion python python3 iputils-ping tig
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
     sed -i 's/PermitRootLogin.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
     /etc/init.d/ssh start
@@ -33,9 +34,9 @@ if [ "$1" = "install" ]; then
     Link
     ~/.vim/bundle/neobundle.vim/bin/neoinstall
     locale-gen zh_TW.UTF-8 en_US.UTF-8
-    cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Change timezone to Taipei"
+    cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Default timezone to Taipei"
     dpkg-reconfigure --frontend noninteractive tzdata
-    echo "Set your root password with passwd!"
+    echo "Set your root password with passwd and change your timezone!"
 elif [ "$1" = "link" ]; then
     Link
 elif [ "$1" = "unlink" ]; then
