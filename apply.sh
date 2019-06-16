@@ -22,11 +22,17 @@ Unlink() {
     done
 }
 
+InstallGo() {
+    wget https://dl.google.com/go/go1.12.6.linux-amd64.tar.gz
+    tar -C /usr/local -xzf go1.12.6.linux-amd64.tar.gz
+}
+
 if [ "$1" = "install" ]; then
     apt update || sudo apt update
     apt install -y sudo
     sudo apt install -y ssh vim curl ctags cscope make tmux sed silversearcher-ag locales \
-        bash-completion python python3 iputils-ping tig
+        bash-completion python python3 iputils-ping tig wget
+    InstallGo
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
     sed -i 's/PermitRootLogin.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
     /etc/init.d/ssh start
