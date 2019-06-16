@@ -31,6 +31,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'vim-syntastic/syntastic'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'stamblerre/gocode'
 
 call neobundle#end()
 
@@ -53,7 +54,8 @@ nnoremap <leader>e :tabe
 nnoremap <leader>c :tabclose<CR>
 nnoremap <leader>b :Gblame<CR>
 nnoremap <leader>v :Gvdiff<CR><C-w><C-x>
-nnoremap <leader>t :TlistToggle<CR>
+nnoremap <leader>t :GoTestFunc<CR>
+nnoremap <leader>l :TlistToggle<CR>
 nnoremap <leader>g :GitGutterSignsToggle<CR>
 nnoremap <leader>n :n<CR>
 nnoremap <leader>N :N<CR>
@@ -239,4 +241,4 @@ let g:go_highlight_trailing_whitespace_error = 1
 let g:go_fmt_autosave = 1
 let g:go_metalinter_autosave = 1
 let g:go_list_type = "quickfix"
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck'] "errcheck(?)
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']

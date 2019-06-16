@@ -110,8 +110,9 @@ alias ptt='ssh bbsu@ptt.cc'
 alias ptt2='ssh bbsu@ptt2.cc'
 
 export LANG='en_US.UTF-8'
+export GOPATH=$HOME/go
 if [ -d "$HOME/linux-configs/bin" ]; then
-    PATH="$PATH:$HOME/linux-configs/bin"
+    PATH="$PATH:$HOME/linux-configs/bin:/usr/local/go/bin:$GOPATH/bin"
 fi
 
 fix ()
