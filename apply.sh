@@ -25,6 +25,7 @@ Unlink() {
 InstallGo() {
     wget https://dl.google.com/go/go1.12.6.linux-amd64.tar.gz
     sudo tar -C /usr/local -xzf go1.12.6.linux-amd64.tar.gz
+    rm -f go1.12.6.linux-amd64.tar.gz
 }
 
 if [ "$1" = "install" ]; then
@@ -34,8 +35,6 @@ if [ "$1" = "install" ]; then
         bash-completion python python3 iputils-ping tig wget
     InstallGo
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
-    sed -i 's/PermitRootLogin.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
-    /etc/init.d/ssh start
     curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
     Link
     ~/.vim/bundle/neobundle.vim/bin/neoinstall
