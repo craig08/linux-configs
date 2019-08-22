@@ -10,14 +10,14 @@ EOF
 }
 
 Link() {
-    for i in .bashrc .vimrc .tmux.conf .gitconfig; do
+    for i in .bashrc .vimrc .tmux.conf .gitconfig .profile; do
         [ -f ~/$i ] && [ ! -f ~/${i}.bak ] && mv -f ~/$i ~/${i}.bak && echo "backup original $i to ${i}.bak"
         ln -s $(cd $(dirname $0); pwd)/env/$i ~/$i && echo "link file $(cd $(dirname $0); pwd)/env/$i to ~/$i"
     done
 }
 
 Unlink() {
-    for i in .bashrc .vimrc .tmux.conf .gitconfig; do
+    for i in .bashrc .vimrc .tmux.conf .gitconfig .profile; do
         rm -f ~/$i && mv -f ~/${i}.bak ~/$i && echo "unlink file ~/$i and restore default"
     done
 }
