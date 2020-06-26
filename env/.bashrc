@@ -126,3 +126,19 @@ fix ()
     fi;
     vim -q /tmp/fix -c ':copen'
 }
+dec ()
+{
+    if [ -z "$1" ]; then
+        echo "dec <input>"
+        return 0;
+    fi;
+    openssl enc -aes-256-cbc -d -salt -pbkdf2 -in $1
+}
+enc ()
+{
+    if [ -z "$1" ] || [ -z "$2" ]; then
+        echo "enc <input> <output>"
+        return 0;
+    fi;
+    openssl enc -aes-256-cbc -salt -pbkdf2 -in github_secret -out github_secret.enc
+}
