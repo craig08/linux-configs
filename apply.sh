@@ -36,6 +36,7 @@ if [ "$1" = "install" ]; then
     InstallGo
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
     Link
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall +qall
     locale-gen zh_TW.UTF-8 en_US.UTF-8
     cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Default timezone to Taipei"
