@@ -35,9 +35,8 @@ if [ "$1" = "install" ]; then
         bash-completion python python3 iputils-ping tig wget
     InstallGo
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
-    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
     Link
-    ~/.vim/bundle/neobundle.vim/bin/neoinstall
+    vim +PlugInstall +qall
     locale-gen zh_TW.UTF-8 en_US.UTF-8
     cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Default timezone to Taipei"
     dpkg-reconfigure --frontend noninteractive tzdata

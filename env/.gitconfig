@@ -3,7 +3,7 @@
 	excludesfile = ~/.gitignore
 [user]
 	name = Craig Chi
-	email = craig10624@gmail.com
+	email = craigchi@google.com
 [merge]
 	tool = vimdiff
 [color]
