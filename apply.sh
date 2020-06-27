@@ -36,9 +36,9 @@ InstallYay() {
 if [ "$1" = "install" ]; then
     yay || InstallYay
     yay -Sy vim curl ctags cscope make tmux sed the_silver_searcher bash-completion python3
-    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     Link
-    ~/.vim/bundle/neobundle.vim/bin/neoinstall
+    vim +PlugInstall +qall
     echo "Set your root password with passwd!"
 elif [ "$1" = "link" ]; then
     Link
