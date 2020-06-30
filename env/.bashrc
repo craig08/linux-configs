@@ -129,10 +129,11 @@ fix ()
 dec ()
 {
     if [ -z "$1" ]; then
-        echo "dec <input>"
-        return 0;
+        input="$HOME/secrets/github_secret.enc"
+    else
+        input="$1"
     fi;
-    openssl enc -aes-256-cbc -d -salt -pbkdf2 -in $1
+    echo "$(openssl enc -aes-256-cbc -d -salt -pbkdf2 -in $input)" | pager
 }
 enc ()
 {
@@ -142,3 +143,5 @@ enc ()
     fi;
     openssl enc -aes-256-cbc -salt -pbkdf2 -in github_secret -out github_secret.enc
 }
+alias gv='cd ~/go/src/github.com/google/gVisor/'
+alias dic=zdict

@@ -6,6 +6,7 @@ set expandtab
 set smartindent
 set nu
 set incsearch
+set ignorecase
 set smartcase
 
 set colorcolumn=80
@@ -25,6 +26,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go'
 Plug 'stamblerre/gocode'
 Plug 'flazz/vim-colorschemes'
+Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
@@ -52,7 +54,7 @@ nmap _P :r ~/.vi_tmp<CR>
 
 " remember last cursor location when open file
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 autocmd FileType go setlocal shiftwidth=4 tabstop=4 list noexpandtab
@@ -65,8 +67,19 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+
+" cscope
+set cscopetag
+set csto=1
+let $csPath="cscope.out"
+for ind in range(0, 5)
+    if filereadable($csPath)
+        let g:CCTreeCscopeDb = $csPath
+        cs add $csPath
+        break
+    endif
+    let $csPath = "../" . $csPath
+endfor
 
 " vim-go settings
 let g:go_fmt_command = "goimports"
@@ -84,6 +97,13 @@ let g:go_fmt_autosave = 1
 let g:go_metalinter_autosave = 1
 let g:go_list_type = "quickfix"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+set splitbelow
+
+" clang format
+autocmd FileType c,cpp,cc ClangFormatAutoEnable
+let g:clang_format#style_options = {
+            \ "SortIncludes": "false",
+            \ "IndentWidth" : 2}
 
 colorscheme molokai
 "colorscheme hybrid
