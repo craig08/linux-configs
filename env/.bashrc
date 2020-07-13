@@ -128,12 +128,16 @@ fix ()
 }
 dec ()
 {
-    if [ -z "$1" ]; then
-        input="$HOME/secrets/github_secret.enc"
+    default="$HOME/secrets/github_secret.enc"
+    if [ -z "$1" ] && [ -f "$default" ]; then
+        input="$default"
+    elif [ -z "$1" ]; then
+        echo "enc <input>"
+        return 0;
     else
         input="$1"
     fi;
-    echo "$(openssl enc -aes-256-cbc -d -salt -pbkdf2 -in $input)" | pager
+    echo "$(openssl enc -aes-256-cbc -d -salt -pbkdf2 -in $input)" | less
 }
 enc ()
 {
@@ -141,7 +145,8 @@ enc ()
         echo "enc <input> <output>"
         return 0;
     fi;
-    openssl enc -aes-256-cbc -salt -pbkdf2 -in github_secret -out github_secret.enc
+    openssl enc -aes-256-cbc -salt -pbkdf2 -in "$1" -out "$2"
 }
 alias gv='cd ~/go/src/github.com/google/gVisor/'
 alias dic=zdict
+alias ag='ag --path-to-ignore ~/.ignore'

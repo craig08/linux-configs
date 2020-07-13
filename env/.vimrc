@@ -4,6 +4,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
+set autoindent
 set nu
 set incsearch
 set ignorecase
@@ -27,6 +28,7 @@ Plug 'fatih/vim-go'
 Plug 'stamblerre/gocode'
 Plug 'flazz/vim-colorschemes'
 Plug 'rhysd/vim-clang-format'
+Plug 'tell-k/vim-autopep8'
 
 call plug#end()
 
@@ -94,12 +96,15 @@ let g:go_highlight_chan_whitespace_error = 1
 let g:go_highlight_space_tab_error = 1
 let g:go_highlight_trailing_whitespace_error = 1
 let g:go_fmt_autosave = 1
-let g:go_metalinter_autosave = 1
-let g:go_list_type = "quickfix"
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+"let g:go_metalinter_autosave = 1
+"let g:go_list_type = "quickfix"
+"let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+"let g:go_metalinter_enabled = ['golint']
+"let g:go_metalinter_command = "golangci-lint run --disable-all"
 set splitbelow
 
 " clang format
+" install clang-format package first
 autocmd FileType c,cpp,cc ClangFormatAutoEnable
 let g:clang_format#style_options = {
             \ "SortIncludes": "false",
