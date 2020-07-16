@@ -73,6 +73,7 @@ map <Leader>h <Plug>(easymotion-linebackward)
 " cscope
 set cscopetag
 set csto=1
+set csre
 let $csPath="cscope.out"
 for ind in range(0, 5)
     if filereadable($csPath)
