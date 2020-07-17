@@ -60,6 +60,8 @@ if has("autocmd")
 endif
 
 autocmd FileType go setlocal shiftwidth=4 tabstop=4 list noexpandtab
+autocmd FileType cc setlocal shiftwidth=2 tabstop=2 softtabstop=2 list
+autocmd FileType h setlocal shiftwidth=2 tabstop=2 softtabstop=2 list
 
 " EasyMotion
 map <Leader> <Plug>(easymotion-prefix)
@@ -73,7 +75,6 @@ map <Leader>h <Plug>(easymotion-linebackward)
 " cscope
 set cscopetag
 set csto=1
-set csre
 let $csPath="cscope.out"
 for ind in range(0, 5)
     if filereadable($csPath)
