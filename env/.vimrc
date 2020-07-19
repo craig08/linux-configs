@@ -7,6 +7,7 @@ set smartindent
 set autoindent
 set nu
 set incsearch
+set hlsearch
 set ignorecase
 set smartcase
 
