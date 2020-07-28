@@ -110,7 +110,7 @@ set splitbelow
 " install clang-format package first
 autocmd FileType c,cpp,cc ClangFormatAutoEnable
 let g:clang_format#style_options = {
-            \ "SortIncludes": "false",
+            \ "IncludeBlocks": "Regroup",
             \ "IndentWidth" : 2}
 
 colorscheme molokai
