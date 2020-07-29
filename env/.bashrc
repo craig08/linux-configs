@@ -148,5 +148,6 @@ enc ()
     openssl enc -aes-256-cbc -salt -pbkdf2 -in "$1" -out "$2"
 }
 alias gv='cd ~/go/src/github.com/google/gVisor/'
+alias fs='cd ~/go/src/github.com/google/gVisor/pkg/sentry/fsimpl/fuse'
 alias dic=zdict
 alias ag='ag --path-to-ignore ~/.ignore'
