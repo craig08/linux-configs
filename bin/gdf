@@ -4,7 +4,7 @@
 # such that vim can recognize it.
 # - don't bind on git diff
 
-GDF_WRAPPER=$HOME/.local/bin
+GDF_WRAPPER=$HOME/.local/bin/gdf_wrapper
 
 SetupWrapper()
 {

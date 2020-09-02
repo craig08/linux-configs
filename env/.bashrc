@@ -112,7 +112,7 @@ alias ptt2='ssh bbsu@ptt2.cc'
 export LANG='en_US.UTF-8'
 export GOPATH=$HOME/go
 if [ -d "$HOME/linux-configs/bin" ]; then
-    PATH="$PATH:$HOME/linux-configs/bin:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin"
+    PATH="/usr/local/go/bin:$PATH:$HOME/linux-configs/bin:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin"
 fi
 
 fix ()
@@ -147,7 +147,10 @@ enc ()
     fi;
     openssl enc -aes-256-cbc -salt -pbkdf2 -in "$1" -out "$2"
 }
-alias gv='cd ~/go/src/github.com/google/gVisor/'
-alias fs='cd ~/go/src/github.com/google/gVisor/pkg/sentry/fsimpl/fuse'
 alias dic=zdict
 alias ag='ag --path-to-ignore ~/.ignore'
+
+alias gv='cd ~/go/src/github.com/google/gVisor/'
+alias fs='cd ~/go/src/github.com/google/gVisor/pkg/sentry/fsimpl/fuse'
+alias li='cd ~/go/src/github.com/google/gVisor/pkg/abi/linux'
+
