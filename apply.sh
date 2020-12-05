@@ -23,9 +23,10 @@ Unlink() {
 }
 
 InstallGo() {
-    wget https://dl.google.com/go/go1.12.6.linux-amd64.tar.gz
-    sudo tar -C /usr/local -xzf go1.12.6.linux-amd64.tar.gz
-    rm -f go1.12.6.linux-amd64.tar.gz
+    [ -z "${1}" ] && echo "No Go version provided!" && return 1
+    wget https://dl.google.com/go/go${1}.linux-amd64.tar.gz
+    sudo tar -C /usr/local -xzf go${1}.linux-amd64.tar.gz
+    rm -f go${1}.linux-amd64.tar.gz
 }
 
 if [ "$1" = "install" ]; then
@@ -33,15 +34,16 @@ if [ "$1" = "install" ]; then
     apt install -y sudo
     sudo apt install -y ssh vim curl ctags cscope make tmux sed silversearcher-ag locales \
         bash-completion python python3 iputils-ping tig wget
-    InstallGo
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
+    #InstallGo 1.14.6
     Link
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall +qall
-    locale-gen zh_TW.UTF-8 en_US.UTF-8
-    cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Default timezone to Taipei"
-    dpkg-reconfigure --frontend noninteractive tzdata
-    echo "Set your root password with passwd and change your timezone!"
+    # Configure timezone and locale
+    #sudo DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
+    #locale-gen zh_TW.UTF-8 en_US.UTF-8
+    #cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Default timezone to Taipei"
+    #dpkg-reconfigure --frontend noninteractive tzdata
+    #echo "Set your root password with passwd and change your timezone!"
 elif [ "$1" = "link" ]; then
     Link
 elif [ "$1" = "unlink" ]; then
