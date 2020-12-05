@@ -112,7 +112,7 @@ alias ptt2='ssh bbsu@ptt2.cc'
 export LANG='en_US.UTF-8'
 export GOPATH=$HOME/go
 if [ -d "$HOME/linux-configs/bin" ]; then
-    PATH="/usr/local/go/bin:$PATH:$HOME/linux-configs/bin:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin"
+    PATH="/usr/local/go/bin:$PATH:$HOME/linux-configs/bin:$GOPATH/bin:$HOME/.local/bin"
 fi
 
 fix ()
@@ -150,7 +150,10 @@ enc ()
 alias dic=zdict
 alias ag='ag --path-to-ignore ~/.ignore'
 
-alias gv='cd ~/go/src/github.com/google/gVisor/'
-alias fs='cd ~/go/src/github.com/google/gVisor/pkg/sentry/fsimpl/fuse'
-alias li='cd ~/go/src/github.com/google/gVisor/pkg/abi/linux'
+alias gcp='gcloud compute ssh craigchi@instance-1'
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk/path.bash.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
